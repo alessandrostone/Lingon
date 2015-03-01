@@ -21,7 +21,7 @@
 	
 	if ([sender tag] == LINManPageLaunchdPlist) {
 		if (manPageLaunchdPlistWindow == nil) {
-			[NSBundle loadNibNamed:@"LINManPageLaunchdPlist.nib" owner:self];
+			[[NSBundle mainBundle] loadNibNamed:@"LINManPageLaunchdPlist.nib" owner:self topLevelObjects:nil];
 		}
 
 		system([[NSString stringWithFormat:@"/usr/bin/man launchd.plist | col -b > %@", path] UTF8String]);
@@ -32,7 +32,7 @@
 	} 
 	else if ([sender tag] == LINManPageLaunchctl) {
 		if (manPageLaunchctlWindow == nil) {
-			[NSBundle loadNibNamed:@"LINManPageLaunchctl.nib" owner:self];
+			[[NSBundle mainBundle] loadNibNamed:@"LINManPageLaunchctl.nib" owner:self topLevelObjects:nil];
 		}
 		
 		system([[NSString stringWithFormat:@"/usr/bin/man launchctl | col -b > %@", path] UTF8String]);
@@ -43,7 +43,7 @@
 	} 
 	else if ([sender tag] == LINManPageLaunchd) {
 		if (manPageLaunchdWindow == nil) {
-			[NSBundle loadNibNamed:@"LINManPageLaunchd.nib" owner:self];
+			[[NSBundle mainBundle] loadNibNamed:@"LINManPageLaunchd.nib" owner:self topLevelObjects:nil];
 		}
 		
 		system([[NSString stringWithFormat:@"/usr/bin/man launchd | col -b > %@", path] UTF8String]);

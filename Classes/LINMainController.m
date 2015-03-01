@@ -13,6 +13,7 @@
 #import "LINStandardHeader.h"
  
 #define THIS_VERSION 2.11
+#define MINIMUM_OS_VERSION 5
 
 
 @implementation LINMainController
@@ -32,7 +33,7 @@ static id sharedInstance = nil;
 
 + (void)initialize
 {
-	NSValueTransformer *fontTransformer = [[LINFontTransformer alloc] init];
+	NSValueTransformer *fontTransformer = (NSValueTransformer *)[[LINFontTransformer alloc] init];
     
 	[NSValueTransformer setValueTransformer:fontTransformer forName:@"FontTransformer"];
 }
@@ -50,17 +51,15 @@ static id sharedInstance = nil;
 
 - (void)basicInitialisation
 {
-	SInt32 systemVersion;
-	
-	if (Gestalt(gestaltSystemVersion, &systemVersion) == noErr) {
-		if (systemVersion < 0x1050) {
-			[NSApp activateIgnoringOtherApps:YES];
-			
-			[LINVarious alertWithMessage:[NSString stringWithFormat:NSLocalizedString(@"You need %@ or later to run this version of Lingon", @"You need %@ or later to run this version of Lingon"), @"Mac OS X 10.5 Leopard"] informativeText:NSLocalizedString(@"Go to the web site (http://tuppis.com/lingon) to download another version for an earlier Mac OS X system", @"Go to the web site (http://tuppis.com/lingon) to download another version for an earlier Mac OS X system") defaultButton:OK_BUTTON alternateButton:nil otherButton:nil];
-			
-			[NSApp terminate:nil];
-		}
-	}
+	NSOperatingSystemVersion systemVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
+		
+    if (systemVersion.minorVersion < MINIMUM_OS_VERSION) {
+        [NSApp activateIgnoringOtherApps:YES];
+        
+        [LINVarious alertWithMessage:[NSString stringWithFormat:NSLocalizedString(@"You need %@ or later to run this version of Lingon", @"You need %@ or later to run this version of Lingon"), @"Mac OS X 10.5 Leopard"] informativeText:NSLocalizedString(@"Go to the web site (http://tuppis.com/lingon) to download another version for an earlier Mac OS X system", @"Go to the web site (http://tuppis.com/lingon) to download another version for an earlier Mac OS X system") defaultButton:OK_BUTTON alternateButton:nil otherButton:nil];
+        
+        [NSApp terminate:nil];
+    }
 	
 	[[LINPreferencesController sharedInstance] setDefaults];
 	

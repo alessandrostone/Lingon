@@ -131,50 +131,50 @@ static id sharedInstance = nil;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	if ([(NSString *)context isEqualToString:@"PlistChanged"]) {
+	if ([(__bridge NSString *)context isEqualToString:@"PlistChanged"]) {
 		[LINMain currentPlistChanged];
 	} 
-	else if ([(NSString *)context isEqualToString:@"WhatInTemporaryPlistChanged"]) {
+	else if ([(__bridge NSString *)context isEqualToString:@"WhatInTemporaryPlistChanged"]) {
 		[LINMain currentPlistChanged];
 		[[LINMain plistChangesDictionary] setValue:[NSNumber numberWithBool:YES] forKey:@"What"];
 		
 	} 
-	else if ([(NSString *)context isEqualToString:@"KeepAliveInTemporaryPlistChanged"]) {
+	else if ([(__bridge NSString *)context isEqualToString:@"KeepAliveInTemporaryPlistChanged"]) {
 		[LINMain currentPlistChanged];
 		[[LINMain plistChangesDictionary] setValue:[NSNumber numberWithBool:YES] forKey:@"KeepAlive"];
 		
 	} 
-	else if ([(NSString *)context isEqualToString:@"WatchPathInTemporaryPlistChanged"]) {
+	else if ([(__bridge NSString *)context isEqualToString:@"WatchPathInTemporaryPlistChanged"]) {
 		[LINMain currentPlistChanged];
 		[[LINMain plistChangesDictionary] setValue:[NSNumber numberWithBool:YES] forKey:@"WatchPath"];
 		
 	} 
-	else if ([(NSString *)context isEqualToString:@"QueueDirectoryInTemporaryPlistChanged"]) {
+	else if ([(__bridge NSString *)context isEqualToString:@"QueueDirectoryInTemporaryPlistChanged"]) {
 		[LINMain currentPlistChanged];
 		[[LINMain plistChangesDictionary] setValue:[NSNumber numberWithBool:YES] forKey:@"QueueDirectory"];
 		
 	} 
-	else if ([(NSString *)context isEqualToString:@"StartIntervalTextFieldInTemporaryPlistChanged"]) {
+	else if ([(__bridge NSString *)context isEqualToString:@"StartIntervalTextFieldInTemporaryPlistChanged"]) {
 		[LINMain currentPlistChanged];
 		[[LINMain plistChangesDictionary] setValue:[NSNumber numberWithBool:YES] forKey:@"StartIntervalTextField"];
 		
 	} 
-	else if ([(NSString *)context isEqualToString:@"StartIntervalPopUpInTemporaryPlistChanged"]) {
+	else if ([(__bridge NSString *)context isEqualToString:@"StartIntervalPopUpInTemporaryPlistChanged"]) {
 		[LINMain currentPlistChanged];
 		[[LINMain plistChangesDictionary] setValue:[NSNumber numberWithBool:YES] forKey:@"StartIntervalPopUp"];
 		
 	} 
-	else if ([(NSString *)context isEqualToString:@"SpecificDateInTemporaryPlistChanged"]) {
+	else if ([(__bridge NSString *)context isEqualToString:@"SpecificDateInTemporaryPlistChanged"]) {
 		[LINMain currentPlistChanged];
 		[[LINMain plistChangesDictionary] setValue:[NSNumber numberWithBool:YES] forKey:@"SpecificTime"];
 	
 	} 
-	else if ([(NSString *)context isEqualToString:@"SpecificTimeInTemporaryPlistChanged"]) {
+	else if ([(__bridge NSString *)context isEqualToString:@"SpecificTimeInTemporaryPlistChanged"]) {
 		[LINMain currentPlistChanged];
 		[[LINMain plistChangesDictionary] setValue:[NSNumber numberWithBool:YES] forKey:@"SpecificTime"];
 		
 	} 
-	else if ([(NSString *)context isEqualToString:@"SpecificDayInTemporaryPlistChanged"]) {
+	else if ([(__bridge NSString *)context isEqualToString:@"SpecificDayInTemporaryPlistChanged"]) {
 		[LINMain currentPlistChanged];
 		[[LINMain plistChangesDictionary] setValue:[NSNumber numberWithBool:YES] forKey:@"SpecificDay"];
 		
@@ -455,7 +455,7 @@ static id sharedInstance = nil;
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 {
 	if ([[alert suppressionButton] state] == NSOnState) {
-		[LINDefaults setValue:[NSNumber numberWithBool:NO] forKey:[(NSArray *)contextInfo objectAtIndex:0]];
+		[LINDefaults setValue:[NSNumber numberWithBool:NO] forKey:[(__bridge NSArray *)contextInfo objectAtIndex:0]];
 	}
 }
 

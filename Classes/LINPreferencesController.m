@@ -57,7 +57,7 @@ static id sharedInstance = nil;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	if ([(NSString *)context isEqualToString:@"ListFontSizeChanged"]) {
+	if ([(__bridge NSString *)context isEqualToString:@"ListFontSizeChanged"]) {
 		[[LINInterface plistsOutlineView] reloadData];
 	} 
 	else {
@@ -89,7 +89,7 @@ static id sharedInstance = nil;
 - (IBAction)showPreferencesAction:(id)sender
 {
 	if (preferencesWindow == nil) {
-		[NSBundle loadNibNamed:@"LINPreferences.nib" owner:self];
+		[[NSBundle mainBundle] loadNibNamed:@"LINPreferences.nib" owner:self topLevelObjects:nil];
 	}
 	
 	[preferencesWindow makeKeyAndOrderFront:nil];

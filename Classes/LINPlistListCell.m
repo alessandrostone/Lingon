@@ -70,7 +70,7 @@
             imageFrame.origin.y += ceil((cellFrame.size.height - imageFrame.size.height) / 2);
 		}
 		
-        [image compositeToPoint:imageFrame.origin operation:NSCompositeSourceOver];
+        [image drawAtPoint:imageFrame.origin fromRect:imageFrame operation:NSCompositeSourceOver fraction:1.0];
     }
 	
     NSSize contentSize = [self cellSize];

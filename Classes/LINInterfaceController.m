@@ -162,9 +162,9 @@ static id sharedInstance = nil;
 
 - (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
-	if (returnCode == NSOKButton) {
-		NSInteger tag = [(id)contextInfo tag];	
-		NSMutableString *path = [NSMutableString stringWithString:[[panel filenames] objectAtIndex:0]];
+	if (returnCode == NSModalResponseOK) {
+		NSInteger tag = [(__bridge id)contextInfo tag];	
+		NSMutableString *path = [NSMutableString stringWithString:[[panel URLs] objectAtIndex:0]];
 		
 		[LINDefaults setValue:[path stringByDeletingLastPathComponent] forKey:@"LastDirectory"];
 		
