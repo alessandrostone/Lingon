@@ -14,10 +14,10 @@
 
 
 @interface LINToolbarController : NSObject {
-	NSToolbarItem *saveToolbarItem;
+	NSToolbarItem *__weak saveToolbarItem;
 }
 
-@property (assign) NSToolbarItem *saveToolbarItem;
+@property (weak) NSToolbarItem *saveToolbarItem;
 
 + (LINToolbarController *)sharedInstance;
 

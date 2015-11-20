@@ -14,42 +14,42 @@
 
 
 @interface LINInterfaceController : NSObject {
-	IBOutlet NSTreeController *plistsTreeController;
-	IBOutlet NSOutlineView *plistsOutlineView;
-	IBOutlet NSWindow *mainWindow;
-	IBOutlet NSWindow *whichFolderSheet;
-	IBOutlet NSMatrix *whichFolderMatrix;
-	IBOutlet NSTextField *labelTextField;
-	IBOutlet NSView *basicView;
-	IBOutlet NSView *expertView;
-	IBOutlet NSSplitView *splitView;
-	IBOutlet NSTextView *expertTextView;
-	IBOutlet NSImageView *expertValidPlistIcon;
-	IBOutlet NSTextField *expertTextField;
-	IBOutlet NSButton *modeButton;
-	IBOutlet NSPopUpButton *insertParameterPopUp;
-	NSImage *validIcon;
-	NSImage *notValidIcon;
+	IBOutlet NSTreeController *__weak plistsTreeController;
+	IBOutlet NSOutlineView *__weak plistsOutlineView;
+	IBOutlet NSWindow *__weak mainWindow;
+	IBOutlet NSWindow *__weak whichFolderSheet;
+	IBOutlet NSMatrix *__weak whichFolderMatrix;
+	IBOutlet NSTextField *__weak labelTextField;
+	IBOutlet NSView *__weak basicView;
+	IBOutlet NSView *__weak expertView;
+	IBOutlet NSSplitView *__weak splitView;
+	IBOutlet NSTextView *__unsafe_unretained expertTextView;
+	IBOutlet NSImageView *__weak expertValidPlistIcon;
+	IBOutlet NSTextField *__weak expertTextField;
+	IBOutlet NSButton *__weak modeButton;
+	IBOutlet NSPopUpButton *__weak insertParameterPopUp;
+	NSImage *__weak validIcon;
+	NSImage *__weak notValidIcon;
 	NSArray *insertParametersArray;
 }
 
-@property (readonly) IBOutlet NSTreeController *plistsTreeController;
-@property (readonly) IBOutlet NSOutlineView *plistsOutlineView;
-@property (readonly) IBOutlet NSWindow *mainWindow;
-@property (readonly) IBOutlet NSWindow *whichFolderSheet;
-@property (readonly) IBOutlet NSMatrix *whichFolderMatrix;
-@property (readonly) IBOutlet NSTextField *labelTextField;
-@property (readonly) IBOutlet NSView *basicView;
-@property (readonly) IBOutlet NSView *expertView;
-@property (readonly) IBOutlet NSSplitView *splitView;
-@property (readonly) IBOutlet NSTextView *expertTextView;
-@property (readonly) IBOutlet NSImageView *expertValidPlistIcon;
-@property (readonly) IBOutlet NSTextField *expertTextField;
-@property (readonly) IBOutlet NSButton *modeButton;
-@property (readonly) IBOutlet NSPopUpButton *insertParameterPopUp;
-@property (assign) NSImage *validIcon;
-@property (assign) NSImage *notValidIcon;
-@property (assign) NSArray *insertParametersArray;
+@property (weak, readonly) IBOutlet NSTreeController *plistsTreeController;
+@property (weak, readonly) IBOutlet NSOutlineView *plistsOutlineView;
+@property (weak, readonly) IBOutlet NSWindow *mainWindow;
+@property (weak, readonly) IBOutlet NSWindow *whichFolderSheet;
+@property (weak, readonly) IBOutlet NSMatrix *whichFolderMatrix;
+@property (weak, readonly) IBOutlet NSTextField *labelTextField;
+@property (weak, readonly) IBOutlet NSView *basicView;
+@property (weak, readonly) IBOutlet NSView *expertView;
+@property (weak, readonly) IBOutlet NSSplitView *splitView;
+@property (unsafe_unretained, readonly) IBOutlet NSTextView *expertTextView;
+@property (weak, readonly) IBOutlet NSImageView *expertValidPlistIcon;
+@property (weak, readonly) IBOutlet NSTextField *expertTextField;
+@property (weak, readonly) IBOutlet NSButton *modeButton;
+@property (weak, readonly) IBOutlet NSPopUpButton *insertParameterPopUp;
+@property (weak) NSImage *validIcon;
+@property (weak) NSImage *notValidIcon;
+@property  NSArray *insertParametersArray;
 
 + (LINInterfaceController *)sharedInstance;
 - (IBAction)setPathAction:(id)sender;

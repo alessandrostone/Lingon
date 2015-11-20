@@ -13,7 +13,7 @@
 	<key>CFBundleIconFile</key>
 	<string>LINApplicationIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.lingon.Lingon</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

@@ -17,6 +17,4 @@
     NSImage	*image;
 }
 
-@property (copy) NSImage *image;
-
 @end

@@ -15,12 +15,12 @@
 
 @interface LINPreferencesController : NSWindowController
 {
-	IBOutlet NSTextField *noUpdateAvailableTextField;
-	IBOutlet NSWindow *preferencesWindow;
+	IBOutlet NSTextField *__weak noUpdateAvailableTextField;
+	IBOutlet NSWindow *__weak preferencesWindow;
 }
 
-@property (readonly) IBOutlet NSWindow *preferencesWindow;
-@property (readonly) IBOutlet NSTextField *noUpdateAvailableTextField;
+@property (weak, readonly) IBOutlet NSWindow *preferencesWindow;
+@property (weak, readonly) IBOutlet NSTextField *noUpdateAvailableTextField;
 
 + (LINPreferencesController *)sharedInstance;
 - (IBAction)checkNowAction:(id)sender;

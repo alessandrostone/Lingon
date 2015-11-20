@@ -90,7 +90,7 @@ static id sharedInstance = nil;
 		}
 		
 		if (checkForUpdates == YES) {
-			checkForUpdateTimer = [[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkForUpdate) userInfo:nil repeats:NO] retain];
+			checkForUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkForUpdate) userInfo:nil repeats:NO];
 		}									
 	}
 }
@@ -148,7 +148,7 @@ static id sharedInstance = nil;
 		if ([[[LINPreferencesController sharedInstance] preferencesWindow] isVisible] == YES) {
 			[[[LINPreferencesController sharedInstance] noUpdateAvailableTextField] setHidden:NO];
 			
-			hideNoUpdateAvailableTextFieldTimer = [[NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(hideNoUpdateAvailableTextField) userInfo:nil repeats:NO] retain];
+			hideNoUpdateAvailableTextFieldTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(hideNoUpdateAvailableTextField) userInfo:nil repeats:NO];
 		}
 	}
 }
