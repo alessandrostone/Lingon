@@ -147,7 +147,7 @@ static id sharedInstance = nil;
 {
 	id object = [[[LINInterface plistsTreeController] selectedObjects] objectAtIndex:0];
 	
-	[[NSWorkspace sharedWorkspace] selectFile:[object valueForKey:@"path"] inFileViewerRootedAtPath:nil];
+	[[NSWorkspace sharedWorkspace] selectFile:[object valueForKey:@"path"] inFileViewerRootedAtPath:@""];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)anItem
